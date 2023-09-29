@@ -24,7 +24,7 @@ class admin
         $user=Auth::user();
         // auth role check 
         if($user->role==1){
-            return next($request);
+            return $next($request);
         }
 
         if($user->role==2){

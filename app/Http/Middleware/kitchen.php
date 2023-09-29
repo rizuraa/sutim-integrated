@@ -24,11 +24,11 @@ class kitchen
         $user=Auth::user();
         // auth role check 
         if($user->role==2){
-            return next($request);
+            return $next($request);
         }
 
-        if($user->role==2){
-            return redirect('/kitchen');
+        if($user->role==3){
+            return redirect('/bar');
         }
 
         if($user->role==1){

@@ -20,3 +20,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// group routes middleware 3 role 
+
+// admin
+Route::get('admin', function(){
+    return view('admin');
+})->name('admin')->middleware('admin'); 
+
+// kitchen
+Route::get('kitchen', function(){
+    return view('kitchen');
+})->name('kitchen')->middleware('kitchen'); 
+
+// bar
+Route::get('bar', function(){
+    return view('bar');
+})->name('bar')->middleware('bar'); 
