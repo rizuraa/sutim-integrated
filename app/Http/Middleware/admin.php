@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class admin
@@ -15,6 +16,25 @@ class admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!Auth::check()){
+            return redirect('welcome');
+        }
+
+        // definition the table 
+        $user=Auth::user();
+        // auth role check 
+        if($user->role==1){
+            return next($request);
+        }
+
+        if($user->role==2){
+            return redirect('/kitchen');
+        }
+
+        if($user->role==3){
+            return redirect('/bar');
+        }
+
         return $next($request);
     }
 }
