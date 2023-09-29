@@ -23,16 +23,32 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // group routes middleware 3 role 
 
 // admin
-Route::get('admin', function(){
-    return view('admin');
-})->name('admin')->middleware('admin'); 
+// Menggunakan route group untuk mengelompokkan route dengan middleware dan prefix
+Route::middleware(['admin'])->prefix('admin')->group(function () {    
+    // Route untuk halaman PO    
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('admin.admin');
+
+    Route::get('/po', function () {
+        return view('admin.po');
+    })->name('admin.po');    
+
+    Route::get('/bar', function () {
+        return view('admin.bar');
+    })->name('admin.bar');    
+
+    Route::get('/kitchen', function () {
+        return view('admin.kitchen');
+    })->name('admin.kitchen');    
+});
 
 // kitchen
-Route::get('kitchen', function(){
-    return view('kitchen');
+Route::get('kithcen', function(){
+    return view('/kitchen/admin');
 })->name('kitchen')->middleware('kitchen'); 
 
 // bar
 Route::get('bar', function(){
-    return view('bar');
+    return view('/bar/bar');
 })->name('bar')->middleware('bar'); 
