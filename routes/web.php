@@ -44,9 +44,16 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 });
 
 // kitchen route group
-Route::get('kithcen', function(){
-    return view('/kitchen/kitchen');
-})->name('kitchen')->middleware('kitchen'); 
+Route::middleware(['kitchen'])->prefix('kitchen')->group(function () {
+    Route::get('/', function(){
+        return view('kitchen.index');
+    })->name('kitchen.index');
+
+    Route::get('/request', function(){
+        return view('kitchen.request');
+    })->name('kitchen.request');
+});
+
 
 // bar route group
 Route::middleware(['bar'])->prefix('bar')->group(function () {

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('kitchen.layout')
 
 @section('content')
 <div class="container">
@@ -13,8 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     {{ __('You are logged in as a Kitchen!') }}
+                    <br>
+                    <b>{{ __('hal yang bisa dilakukan dalam dashboard kitchen: ') }}</b>
+                    <br>
+                    {{ __('- membuat request belanja untuk keperluan kitchen') }}
                 </div>
             </div>
         </div>
