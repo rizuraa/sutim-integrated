@@ -21,7 +21,7 @@
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #0b371eff;">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 mb-2 text-white min-vh-100">
                     <br>
                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -31,21 +31,21 @@
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <a href="{{ route('admin.admin') }}" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                                <i class="fs-4 bi-house text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Home</span>
                             </a>
                         </li>                                                                        
                         <li>
                             <a href="{{ route('admin.po') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-collection"></i> <span class="ms-1 d-none d-sm-inline">Purchasing Order</span> 
+                                <i class="fs-4 bi-collection text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Purchasing Order</span> 
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.bar') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-file-arrow-down"></i> <span class="ms-1 d-none d-sm-inline">Bar Request</span> </a>
+                                <i class="fs-4 bi-file-arrow-down text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Bar Request</span> </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.kitchen') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-file-arrow-down"></i> <span class="ms-1 d-none d-sm-inline">Kitchen Request</span> </a>
+                                <i class="fs-4 bi-file-arrow-down text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Kitchen Request</span> </a>
                         </li>
                     </ul>
                     <hr>
