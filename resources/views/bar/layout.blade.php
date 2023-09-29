@@ -35,7 +35,7 @@
                             </a>
                         </li>                                                                                                
                         <li>
-                            <a href="{{ route('admin.kitchen') }}" class="nav-link px-0 align-middle">
+                            <a href="{{ route('bar.request') }}" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-file-arrow-down"></i> <span class="ms-1 d-none d-sm-inline">Request Order</span> </a>
                         </li>
                     </ul>
@@ -43,7 +43,7 @@
                     <div class="dropdown pb-4">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('assets/sutimputih.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">Admin</span>
+                            <span class="d-none d-sm-inline mx-1">Bar</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">                                                    
                             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
