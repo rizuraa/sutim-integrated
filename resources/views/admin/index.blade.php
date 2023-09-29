@@ -15,6 +15,14 @@
                     @endif
 
                     {{ __('You are logged in as an admin!') }}
+                    <br>
+                    <b>{{ __('Hal yang bisa dikerjakan di halaman admin :') }}</b>
+                    <br>
+                    {{ __('- membuat purchasing order') }}
+                    <br>
+                    {{ __('- print purchasing order') }}
+                    <br>
+                    {{ __('- melihat request dari bar dan kitchen') }}
                 </div>
             </div>
         </div>

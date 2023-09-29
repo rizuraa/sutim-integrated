@@ -33,19 +33,10 @@
                             <a href="{{ route('admin.admin') }}" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
-                        </li>                                                                        
-                        <li>
-                            <a href="{{ route('admin.po') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-collection"></i> <span class="ms-1 d-none d-sm-inline">Purchasing Order</span> 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.bar') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-file-arrow-down"></i> <span class="ms-1 d-none d-sm-inline">Bar Request</span> </a>
-                        </li>
+                        </li>                                                                                                
                         <li>
                             <a href="{{ route('admin.kitchen') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-file-arrow-down"></i> <span class="ms-1 d-none d-sm-inline">Kitchen Request</span> </a>
+                                <i class="fs-4 bi-file-arrow-down"></i> <span class="ms-1 d-none d-sm-inline">Request Order</span> </a>
                         </li>
                     </ul>
                     <hr>
