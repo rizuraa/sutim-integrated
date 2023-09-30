@@ -32,7 +32,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
     Route::get('/po', function () {
         return view('admin.po');
-    })->name('admin.po');    
+    })->name('admin.po');
+
+    // view detaik
+    Route::get('/po-detail', function () {
+        return view('admin.detailpo');
+    })->name('admin.detailpo');
 
     Route::get('/bar', function () {
         return view('admin.bar');
