@@ -34,7 +34,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         return view('admin.po');
     })->name('admin.po');
 
-    // view detaik
+    // tambah data po
+    Route::get('/add-po', function () {
+        return view('admin.addpo');
+    })->name('admin.tambahDataPo');
+
+    // view detail
     Route::get('/po-detail', function () {
         return view('admin.detailpo');
     })->name('admin.detailpo');
