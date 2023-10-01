@@ -48,6 +48,10 @@
                             <a href="{{ route('admin.kitchen') }}" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-file-arrow-down text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Kitchen Request</span> </a>
                         </li>
+                        <li>
+                            <a href="{{ route('admin.product') }}" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-file-arrow-down text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Stock Management</span> </a>
+                        </li>
                     </ul>
                     <hr>
                     <div class="dropdown pb-4">

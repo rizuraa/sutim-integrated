@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mb-3">
-                        <div class="card-header">{{ __('Input Detail Order') }}</div>
+                        <div class="card-header text-white" style="background-color: #0b371eff">{{ __('Input Detail Order') }}</div>
                         <div class="card-body">                            
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nomor Order</label>

@@ -50,7 +50,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
     Route::get('/kitchen', function () {
         return view('admin.kitchen');
-    })->name('admin.kitchen');    
+    })->name('admin.kitchen');
+
+    // prduct
+    Route::get('/product', function () {
+        return view('admin.product');
+    })->name('admin.product');
 });
 
 // kitchen route group
