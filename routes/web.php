@@ -57,13 +57,10 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     //     return view('admin.product');
     // })->name('admin.product');
     
-    // test crud product
-    // Route::resource('/product', [StockController::class], ['names' => 'admin.product']);
+    // CRUD PRODUCT
     Route::get('/product', [StockController::class, 'index'])->name('admin.product');
     Route::get('/admin/product/create', [StockController::class, 'create'])->name('admin.product.create');
     Route::post('/admin/product', [StockController::class, 'store'])->name('admin.product.store');
-    Route::get('/admin/product/{id}', [StockController::class, 'show'])->name('admin.product.show');
-    Route::get('/admin/product/{id}/edit', [StockController::class, 'edit'])->name('admin.product.edit');
     Route::put('/admin/product/{id}', [StockController::class, 'update'])->name('admin.product.update');
     Route::delete('/admin/product/{id}', [StockController::class, 'destroy'])->name('admin.product.destroy');
 });

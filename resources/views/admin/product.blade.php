@@ -26,15 +26,15 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Name Stock</label>
-                                <input type="text" class="form-control" id="nama" name="nama">
+                                <input type="text" class="form-control" id="nama" name="nama" required>
                             </div>
                             <div class="mb-3">
                                 <label for="satuan" class="form-label">Satuan Unit</label>
-                                <input type="text" class="form-control" id="satuan" name="satuan">
+                                <input type="text" class="form-control" id="satuan" name="satuan" required>
                             </div>
                             <div class="mb-3">
                                 <label for="qty" class="form-label">Qty</label>
-                                <input type="text" class="form-control" id="qty" name="qty">
+                                <input type="text" class="form-control" id="qty" name="qty" required>
                             </div>                    
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary">
@@ -92,15 +92,15 @@
                                                         @method('PUT')
                                                         <div class="mb-3">
                                                             <label for="editNama" class="form-label">Name Stock</label>
-                                                            <input type="text" class="form-control" id="editNama" name="nama" value="{{$data->nama}}">
+                                                            <input type="text" class="form-control" id="editNama" name="nama" value="{{$data->nama}}" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="editSatuan" class="form-label">Satuan Unit</label>
-                                                            <input type="text" class="form-control" id="editSatuan" name="satuan" value="{{$data->satuan}}">
+                                                            <input type="text" class="form-control" id="editSatuan" name="satuan" value="{{$data->satuan}}" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="editQty" class="form-label">Qty</label>
-                                                            <input type="text" class="form-control" id="editQty" name="qty" value="{{$data->qty}}">
+                                                            <input type="text" class="form-control" id="editQty" name="qty" value="{{$data->qty}}" required>
                                                         </div>                    
                                                         <div class="d-grid gap-2">
                                                             <button type="submit" class="btn btn-success">
