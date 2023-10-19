@@ -21,9 +21,7 @@ return new class extends Migration
             $table->string('account_name');
             $table->string('payment_type');
             $table->string('payment_date');
-            $table->string('additional_information');
-            $table->string('ongkir');
-            $table->string('biaya_admin');
+            $table->string('additional_information');                           
             $table->string('grand_total');
             $table->string('diajukan_oleh');
             $table->string('diketahui_oleh');

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('qty');
             $table->decimal('price', 10, 2);
             $table->decimal('disc', 10, 2);
-            $table->decimal('total', 10, 2);
-            $table->decimal('sub_total', 10, 2);
+            $table->string('ongkir');
+            $table->decimal('total', 10, 2);            
             // join
             $table->unsignedBigInteger('id_order');
             $table->foreign('id_order')->references('id')->on('orders')->onDelete('cascade');

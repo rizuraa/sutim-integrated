@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\PoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,10 +35,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         return view('admin.po');
     })->name('admin.po');
 
-    // tambah data po
+    // PO GROUP ROUTES
     Route::get('/add-po', function () {
         return view('admin.addpo');
     })->name('admin.tambahDataPo');
+
+    Route::get('/add-po', [PoController::class, 'create'])->name('admin.addpo');
 
     // view detail
     Route::get('/po-detail', function () {

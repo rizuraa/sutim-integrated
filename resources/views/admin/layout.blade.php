@@ -88,4 +88,80 @@
         $('#dataTable').DataTable();
     });
 </script>
+{{-- js untuk bagian input sementara list order --}}
+<script>
+     var items = [];
+
+// Mendapatkan elemen input
+var productNameInput = document.getElementById('productNameInput');
+var unitInput = document.getElementById('unitInput');
+var qtyInput = document.getElementById('qtyInput');
+var priceInput = document.getElementById('priceInput');
+var discInput = document.getElementById('discInput');
+var ongkirInput = document.getElementById('ongkirInput');
+var totalInput = document.getElementById('totalInput');
+
+// Event listener untuk menghitung total saat input berubah
+productNameInput.addEventListener('input', calculateTotal);
+unitInput.addEventListener('input', calculateTotal);
+qtyInput.addEventListener('input', calculateTotal);
+priceInput.addEventListener('input', calculateTotal);
+discInput.addEventListener('input', calculateTotal);
+ongkirInput.addEventListener('input', calculateTotal);
+
+// Menambahkan event listener ke tombol "Add"
+var addButton = document.getElementById('submitButton');
+addButton.addEventListener('click', function () {
+    var productName = productNameInput.value;
+    var unit = unitInput.value;
+    var qty = parseFloat(qtyInput.value) || 0;
+    var price = parseFloat(priceInput.value) || 0;
+    var disc = parseFloat(discInput.value) || 0;
+    var ongkir = parseFloat(ongkirInput.value) || 0;
+
+    var total = (qty * price * (1 - disc / 100)) + ongkir;
+
+    items.push({ productName, unit, qty, price, disc, ongkir, total });
+
+    refreshItemList();
+});
+
+// Fungsi untuk menghitung total dan menampilkan dalam input "Total"
+function calculateTotal() {
+    var qty = parseFloat(qtyInput.value) || 0;
+    var price = parseFloat(priceInput.value) || 0;
+    var disc = parseFloat(discInput.value) || 0;
+    var ongkir = parseFloat(ongkirInput.value) || 0;
+
+    var total = (qty * price * (1 - disc / 100)) + ongkir;
+    totalInput.value = total.toFixed(2);
+}
+
+// Fungsi untuk menampilkan item-item dalam tabel
+function refreshItemList() {
+    var itemList = document.getElementById('itemList');
+    itemList.innerHTML = '';
+
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var row = document.createElement('tr');
+        row.innerHTML = '<td class="text-center">' + (i + 1) + '</td>' +
+            '<td class="text-center">' + item.productName + '</td>' +
+            '<td class="text-center">' + item.unit + '</td>' +
+            '<td class="text-center">' + item.qty + '</td>' +
+            '<td class="text-center">' + item.price + '</td>' +
+            '<td class="text-center">' + item.disc + '</td>' +
+            '<td class="text-center">' + item.ongkir + '</td>' +
+            '<td class="text-center">' + item.total.toFixed(2) + '</td>' +
+            '<td class="text-center"><button class="btn btn-danger" onclick="deleteItem(' + i + ')">Delete</button></td>';
+        itemList.appendChild(row);
+    }
+}
+
+// Fungsi untuk menghapus item dari daftar sementara
+function deleteItem(index) {
+    items.splice(index, 1);
+    refreshItemList();
+}
+  </script>
 </html>
