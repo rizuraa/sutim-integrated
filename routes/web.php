@@ -40,7 +40,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         return view('admin.addpo');
     })->name('admin.tambahDataPo');
 
+    // input route
     Route::get('/add-po', [PoController::class, 'create'])->name('admin.addpo');
+    Route::post('/post-po', [PoController::class, 'store'])->name('admin.addpo.store');
 
     // view detail
     Route::get('/po-detail', function () {

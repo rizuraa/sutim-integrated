@@ -90,7 +90,7 @@
 </script>
 {{-- js untuk bagian input sementara list order --}}
 <script>
-     var items = [];
+          var items = [];
 
 // Mendapatkan elemen input
 var productNameInput = document.getElementById('productNameInput');
@@ -100,6 +100,7 @@ var priceInput = document.getElementById('priceInput');
 var discInput = document.getElementById('discInput');
 var ongkirInput = document.getElementById('ongkirInput');
 var totalInput = document.getElementById('totalInput');
+var grandTotalInput = document.getElementById('grandTotal');
 
 // Event listener untuk menghitung total saat input berubah
 productNameInput.addEventListener('input', calculateTotal);
@@ -108,6 +109,15 @@ qtyInput.addEventListener('input', calculateTotal);
 priceInput.addEventListener('input', calculateTotal);
 discInput.addEventListener('input', calculateTotal);
 ongkirInput.addEventListener('input', calculateTotal);
+
+// Event listener untuk menghitung Grand Total saat input 'list_order' berubah
+qtyInput.addEventListener('input', calculateGrandTotal);
+priceInput.addEventListener('input', calculateGrandTotal);
+discInput.addEventListener('input', calculateGrandTotal);
+ongkirInput.addEventListener('input', calculateGrandTotal);
+
+// Atur nilai awal Grand Total ke 0
+grandTotalInput.value = "0";
 
 // Menambahkan event listener ke tombol "Add"
 var addButton = document.getElementById('submitButton');
@@ -137,6 +147,15 @@ function calculateTotal() {
     totalInput.value = total.toFixed(2);
 }
 
+// Fungsi untuk menghitung Grand Total
+function calculateGrandTotal() {
+    var grandTotal = 0;
+    for (var i = 0; i < items.length; i++) {
+        grandTotal += items[i].total;
+    }
+    grandTotalInput.value = grandTotal.toFixed(2);
+}
+
 // Fungsi untuk menampilkan item-item dalam tabel
 function refreshItemList() {
     var itemList = document.getElementById('itemList');
@@ -156,6 +175,8 @@ function refreshItemList() {
             '<td class="text-center"><button class="btn btn-danger" onclick="deleteItem(' + i + ')">Delete</button></td>';
         itemList.appendChild(row);
     }
+
+    calculateGrandTotal();
 }
 
 // Fungsi untuk menghapus item dari daftar sementara
@@ -163,5 +184,5 @@ function deleteItem(index) {
     items.splice(index, 1);
     refreshItemList();
 }
-  </script>
+</script>
 </html>
