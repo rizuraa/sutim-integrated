@@ -65,7 +65,7 @@
                         <div class="form-group col-md-4">
                             <div class="mb-3">
                                 <label for="grandTotal" class="form-label">Grand Total</label>
-                                <input type="text" class="form-control" id="grandTotal" name="grand_total" required disabled>
+                                <input type="text" class="form-control" id="grandTotal" name="grand_total" required readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="diajukan_oleh" class="form-label">Diajukan Oleh</label>

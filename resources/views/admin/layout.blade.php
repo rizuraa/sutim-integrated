@@ -103,6 +103,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var addButton = document.getElementById('addFormItem');
     addButton.addEventListener('click', function () {
         addFormItem();
+    
+        container.addEventListener('input', function (event) {
+      if (
+        event.target.classList.contains('qtyInput') ||
+        event.target.classList.contains('priceInput') ||
+        event.target.classList.contains('discInput') ||
+        event.target.classList.contains('ongkirInput')
+      ) {
+        var index = event.target.closest('.row').querySelector('.deleteButton').getAttribute('data-index');
+        calculateTotalAndAddItem(index);
+        calculateGrandTotal();
+      }
+    });
     });
 
     function addFormItem() {
@@ -149,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-md-2">
                     <div class="mb-3">
                         <label for="totalInput" class="form-label">Total</label>
-                        <input type="text" class="form-control totalInput" name="list_order[${currentIndex}][total]" readonly>
+                        <input type="text" class="form-control totalInput" name="list_order[${currentIndex}][total]" readonly disabled>
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -167,27 +180,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function calculateTotalAndAddItem(index) {
-        var qtyInput = document.querySelector(`.qtyInput[name="list_order[${index}][qty]"]`);
-        var priceInput = document.querySelector(`.priceInput[name="list_order[${index}][price]"]`);
-        var discInput = document.querySelector(`.discInput[name="list_order[${index}][disc]"]`);
-        var ongkirInput = document.querySelector(`.ongkirInput[name="list_order[${index}][ongkir]"]`);
-        var totalInput = document.querySelector(`.totalInput[name="list_order[${index}][total]"]`);
+      var qtyInput = document.querySelector(`.qtyInput[name="list_order[${index}][qty]"]`);
+      var priceInput = document.querySelector(`.priceInput[name="list_order[${index}][price]"]`);
+      var discInput = document.querySelector(`.discInput[name="list_order[${index}][disc]"]`);
+      var ongkirInput = document.querySelector(`.ongkirInput[name="list_order[${index}][ongkir]"]`);
+      var totalInput = document.querySelector(`.totalInput[name="list_order[${index}][total]"]`);
 
-        var qty = parseFloat(qtyInput.value) || 0;
-        var price = parseFloat(priceInput.value) || 0;
-        var disc = parseFloat(discInput.value) || 0;
-        var ongkir = parseFloat(ongkirInput.value) || 0;
-                        
-        var total = (qty * price * (1 - disc / 100)) + ongkir;
-        totalInput.value = total.toFixed(2);
+      var qty = parseFloat(qtyInput.value) || 0;
+      var price = parseFloat(priceInput.value) || 0;
+      var disc = parseFloat(discInput.value) || 0;
+      var ongkir = parseFloat(ongkirInput.value) || 0;
+
+      var total = qty * price * (1 - disc / 100) + ongkir;
+      totalInput.value = total.toFixed(2);
+    }
+
+    function calculateGrandTotal() {
+      var totalInputs = document.querySelectorAll('.totalInput');
+      var grandTotalInput = document.getElementById('grandTotal');
+
+      var grandTotal = 0;
+
+      totalInputs.forEach(function (totalInput) {
+        grandTotal += parseFloat(totalInput.value) || 0;
+      });
+
+      grandTotalInput.value = grandTotal.toFixed(2);
     }
 
     function deleteFormItem(index) {
         var deleteButton = document.querySelector(`.deleteButton[data-index="${index}"]`);
         var itemToRemove = deleteButton.closest('.row');
-        itemToRemove.parentNode.removeChild(itemToRemove);
+         itemToRemove.parentNode.removeChild(itemToRemove);
     }
 });
-</script>
 </script>
 </html>

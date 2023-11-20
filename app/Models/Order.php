@@ -20,6 +20,7 @@ class Order extends Model
         'payment_type',
         'payment_date',
         'additional_information',
+        'grand_total',
         'diajukan_oleh',
         'diketahui_oleh',
         'disetujui_oleh',

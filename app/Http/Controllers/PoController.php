@@ -39,6 +39,7 @@ class PoController extends Controller
             'payment_type' => 'required',
             'payment_date' => 'required',
             'additional_information' => 'required',
+            'grand_total' => 'required',
             'diajukan_oleh' => 'required',
             'diketahui_oleh' => 'required',
             'disetujui_oleh' => 'required',
@@ -62,6 +63,7 @@ class PoController extends Controller
         $order->payment_type = $request->input('payment_type');
         $order->payment_date = $request->input('payment_date');
         $order->additional_information = $request->input('additional_information');
+        $order->grand_total = $request->input('grand_total');
         $order->diajukan_oleh = $request->input('diajukan_oleh');
         $order->diketahui_oleh = $request->input('diketahui_oleh');
         $order->disetujui_oleh = $request->input('disetujui_oleh');
