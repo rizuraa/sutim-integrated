@@ -88,7 +88,7 @@
                         <hr>
                         <h3>Input Barang PO</h3>
                         <br><br>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="productNameInput" class="form-label">Product Name</label>
@@ -138,28 +138,15 @@
                                     <button type="button" class="badge text-bg-primary" id="submitButton">Add</button>
                                 </div>
                             </div>
-                            <br><br><hr><br>
-                            <table class="table">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th scope="col">No</th>
-                                        <th scope="col">Product Name</th>
-                                        <th scope="col">Unit</th>
-                                        <th scope="col">Qty</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Disc</th>
-                                        <th scope="col">Ongkir</th>
-                                        <th scope="col">Total</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="itemList">
-                                </tbody>
-                            </table>
-                        </div>
+                            <hr><br>                            
+                        </div> --}}
+                        <div id="itemListContainer"></div>
+
+                        <!-- Tombol untuk menambahkan input form barang PO -->
+                                                
                     </div>
-                    <input type="hidden" name="list_order_hidden" id="list_order_hidden" value="">
                     <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary" id="addFormItem">Tambah Barang</button>
                         <button class="btn btn-success" type="submit">Submit All</button>
                     </div>
                   </form>

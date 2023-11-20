@@ -89,100 +89,105 @@
     });
 </script>
 {{-- js untuk bagian input sementara list order --}}
-<script>
-          var items = [];
+<script>    
+document.addEventListener('DOMContentLoaded', function () {
+    var currentIndex = 0;
 
-// Mendapatkan elemen input
-var productNameInput = document.getElementById('productNameInput');
-var unitInput = document.getElementById('unitInput');
-var qtyInput = document.getElementById('qtyInput');
-var priceInput = document.getElementById('priceInput');
-var discInput = document.getElementById('discInput');
-var ongkirInput = document.getElementById('ongkirInput');
-var totalInput = document.getElementById('totalInput');
-var grandTotalInput = document.getElementById('grandTotal');
+    var container = document.getElementById('itemListContainer');
+    container.addEventListener('click', function (event) {
+        if (event.target.classList.contains('deleteButton')) {
+            deleteFormItem(event.target.getAttribute('data-index')); 
+        }
+    });
 
-// Event listener untuk menghitung total saat input berubah
-productNameInput.addEventListener('input', calculateTotal);
-unitInput.addEventListener('input', calculateTotal);
-qtyInput.addEventListener('input', calculateTotal);
-priceInput.addEventListener('input', calculateTotal);
-discInput.addEventListener('input', calculateTotal);
-ongkirInput.addEventListener('input', calculateTotal);
+    var addButton = document.getElementById('addFormItem');
+    addButton.addEventListener('click', function () {
+        addFormItem();
+    });
 
-// Event listener untuk menghitung Grand Total saat input 'list_order' berubah
-qtyInput.addEventListener('input', calculateGrandTotal);
-priceInput.addEventListener('input', calculateGrandTotal);
-discInput.addEventListener('input', calculateGrandTotal);
-ongkirInput.addEventListener('input', calculateGrandTotal);
+    function addFormItem() {
+        var newItemDiv = document.createElement('div');
+        newItemDiv.innerHTML = `
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="productNameInput" class="form-label">Product Name</label>
+                        <input type="text" class="form-control productNameInput" name="list_order[${currentIndex}][nama]">
+                    </div>
+                </div>
+                <!-- Tambah input form lainnya sesuai kebutuhan -->
+                <div class="col-md-1">
+                    <div class="mb-3">
+                        <label for="unitInput" class="form-label">Unit</label>
+                        <input type="text" class="form-control unitInput" name="list_order[${currentIndex}][unit]">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="mb-3">
+                        <label for="qtyInput" class="form-label">Qty</label>
+                        <input type="text" class="form-control qtyInput" name="list_order[${currentIndex}][qty]">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="priceInput" class="form-label">Price</label>
+                        <input type="text" class="form-control priceInput" name="list_order[${currentIndex}][price]">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="mb-3">
+                        <label for="discInput" class="form-label">Disc</label>
+                        <input type="text" class="form-control discInput" name="list_order[${currentIndex}][disc]">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="ongkirInput" class="form-label">Ongkir</label>
+                        <input type="text" class="form-control ongkirInput" name="list_order[${currentIndex}][ongkir]">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="totalInput" class="form-label">Total</label>
+                        <input type="text" class="form-control totalInput" name="list_order[${currentIndex}][total]" readonly>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="mb-3">
+                        <label for="submitButton" class="form-label">Submit</label>
+                        <br>
+                        <button type="button" class="btn btn-danger deleteButton" data-index="${currentIndex}">Hapus</button>
+                    </div>
+                </div>
+            </div>            
+        `;
+        
+        container.appendChild(newItemDiv);
+        currentIndex++;
+    }
 
-// Atur nilai awal Grand Total ke 0
-grandTotalInput.value = "0";
+    function calculateTotalAndAddItem(index) {
+        var qtyInput = document.querySelector(`.qtyInput[name="list_order[${index}][qty]"]`);
+        var priceInput = document.querySelector(`.priceInput[name="list_order[${index}][price]"]`);
+        var discInput = document.querySelector(`.discInput[name="list_order[${index}][disc]"]`);
+        var ongkirInput = document.querySelector(`.ongkirInput[name="list_order[${index}][ongkir]"]`);
+        var totalInput = document.querySelector(`.totalInput[name="list_order[${index}][total]"]`);
 
-// Menambahkan event listener ke tombol "Add"
-var addButton = document.getElementById('submitButton');
-addButton.addEventListener('click', function () {
-    var productName = productNameInput.value;
-    var unit = unitInput.value;
-    var qty = parseFloat(qtyInput.value) || 0;
-    var price = parseFloat(priceInput.value) || 0;
-    var disc = parseFloat(discInput.value) || 0;
-    var ongkir = parseFloat(ongkirInput.value) || 0;
+        var qty = parseFloat(qtyInput.value) || 0;
+        var price = parseFloat(priceInput.value) || 0;
+        var disc = parseFloat(discInput.value) || 0;
+        var ongkir = parseFloat(ongkirInput.value) || 0;
+                        
+        var total = (qty * price * (1 - disc / 100)) + ongkir;
+        totalInput.value = total.toFixed(2);
+    }
 
-    var total = (qty * price * (1 - disc / 100)) + ongkir;
-
-    items.push({ productName, unit, qty, price, disc, ongkir, total });
-
-    refreshItemList();
+    function deleteFormItem(index) {
+        var deleteButton = document.querySelector(`.deleteButton[data-index="${index}"]`);
+        var itemToRemove = deleteButton.closest('.row');
+        itemToRemove.parentNode.removeChild(itemToRemove);
+    }
 });
-
-// Fungsi untuk menghitung total dan menampilkan dalam input "Total"
-function calculateTotal() {
-    var qty = parseFloat(qtyInput.value) || 0;
-    var price = parseFloat(priceInput.value) || 0;
-    var disc = parseFloat(discInput.value) || 0;
-    var ongkir = parseFloat(ongkirInput.value) || 0;
-
-    var total = (qty * price * (1 - disc / 100)) + ongkir;
-    totalInput.value = total.toFixed(2);
-}
-
-// Fungsi untuk menghitung Grand Total
-function calculateGrandTotal() {
-    var grandTotal = 0;
-    for (var i = 0; i < items.length; i++) {
-        grandTotal += items[i].total;
-    }
-    grandTotalInput.value = grandTotal.toFixed(2);
-}
-
-// Fungsi untuk menampilkan item-item dalam tabel
-function refreshItemList() {
-    var itemList = document.getElementById('itemList');
-    itemList.innerHTML = '';
-
-    for (var i = 0; i < items.length; i++) {
-        var item = items[i];
-        var row = document.createElement('tr');
-        row.innerHTML = '<td class="text-center">' + (i + 1) + '</td>' +
-            '<td class="text-center">' + item.productName + '</td>' +
-            '<td class="text-center">' + item.unit + '</td>' +
-            '<td class="text-center">' + item.qty + '</td>' +
-            '<td class="text-center">' + item.price + '</td>' +
-            '<td class="text-center">' + item.disc + '</td>' +
-            '<td class="text-center">' + item.ongkir + '</td>' +
-            '<td class="text-center">' + item.total.toFixed(2) + '</td>' +
-            '<td class="text-center"><button class="btn btn-danger" onclick="deleteItem(' + i + ')">Delete</button></td>';
-        itemList.appendChild(row);
-    }
-
-    calculateGrandTotal();
-}
-
-// Fungsi untuk menghapus item dari daftar sementara
-function deleteItem(index) {
-    items.splice(index, 1);
-    refreshItemList();
-}
+</script>
 </script>
 </html>
