@@ -13,7 +13,9 @@ class PoController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+
+        return view('admin.po', compact('orders'));
     }
 
     /**
@@ -94,7 +96,9 @@ class PoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        return view('admin.detailpo', compact('order'));
     }
 
     /**

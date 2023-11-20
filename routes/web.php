@@ -31,9 +31,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         return view('admin.index');
     })->name('admin.admin');
 
-    Route::get('/po', function () {
-        return view('admin.po');
-    })->name('admin.po');
+    Route::get('/po', [PoController::class, 'index'])->name('admin.po');
 
     // PO GROUP ROUTES
     Route::get('/add-po', function () {
@@ -45,9 +43,11 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::post('/post-po', [PoController::class, 'store'])->name('admin.addpo.store');
 
     // view detail
-    Route::get('/po-detail', function () {
-        return view('admin.detailpo');
-    })->name('admin.detailpo');
+    // Route::get('/po-detail', function () {
+    //     return view('admin.detailpo');
+    // })->name('admin.detailpo');
+
+    Route::get('/po/{id}', [PoController::class, 'show'])->name('admin.detailpo');
 
     Route::get('/bar', function () {
         return view('admin.bar');
