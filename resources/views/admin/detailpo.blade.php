@@ -15,11 +15,17 @@
                 <div class="card-body">
                     <h1 class="h5 class="fw-bold"">{{ $order->delivery }}</h1>
                     <br>
-                    <div>
-                        <p class="fw-bold">No PO : {{ $order->number_order }}</p>
-                        <p class="fw-bold">Platform : {{ $order->platform }}</p>
-                        <p class="fw-bold">Delivery to : {{ $order->delivery }}</p>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="fw-bold">No PO : {{ $order->number_order }}</p>
+                            <p class="fw-bold">Platform : {{ $order->platform }}</p>
+                            <p class="fw-bold">Delivery to : {{ $order->delivery }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="fw-bold">Payment Date : {{ $order->payment_date }}</p>
+                            <p class="fw-bold">Payment Type : {{ $order->payment_type }}</p>                            
+                        </div>
+                    </div>                    
                     <br>
                     <hr>
                     <br>
@@ -53,12 +59,28 @@
                     <hr>
                     <div class="row">
                         <div class="col-6">
-                            
+                            <p>Bank Name : {{$order->bank_name}}</p>
+                            <p>Account Number : {{$order->account_number}} </p>
+                            <p>Account Name : {{$order->account_name}}</p>                            
                         </div>
                         <div class="col-6">
                             <p>Sub total : {{ $order->grand_total }}</p>                            
                             <hr>
                             <p>Grand Total: {{ $order->grand_total }}</p>
+                        </div>
+                    </div>
+                    <div class="row text-center mt-4">
+                        <div class="col-md-4">
+                            <p>Diajukan Oleh</p>
+                            <p class="fw-bold">{{$order->diajukan_oleh}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Diketahui Oleh</p>
+                            <p class="fw-bold">{{$order->diketahui_oleh}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Disetujui Oleh</p>
+                            <p class="fw-bold">{{$order->disetujui_oleh}}</p>
                         </div>
                     </div>
                 </div>
