@@ -33,7 +33,7 @@
                                         <td>
                                             {{-- <a href="{{ route('admin.detailpo') }}" type="button" class="btn btn-success">Lihat Detail</a> --}}
                                             <a href="{{ route('admin.detailpo', ['id' => $order->id]) }}" type="button" class="btn btn-success">Lihat Detail</a>
-                                            <button type="button" class="btn btn-primary">Print</button>
+                                            <a href="{{route('admin.detailpo.print', ['id' => $order->id])}}" class="btn btn-primary">print</a>
                                         </td>
                                     </tr>
                                 @endforeach

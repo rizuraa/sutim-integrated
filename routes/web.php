@@ -48,6 +48,8 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     // })->name('admin.detailpo');
 
     Route::get('/po/{id}', [PoController::class, 'show'])->name('admin.detailpo');
+    // print route 
+    Route::get('/po/{id}/print', [PoController::class, 'printPdf'])->name('admin.detailpo.print');
 
     Route::get('/bar', function () {
         return view('admin.bar');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\ListOrder;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PoController extends Controller
 {
@@ -99,6 +100,14 @@ class PoController extends Controller
         $order = Order::findOrFail($id);
 
         return view('admin.detailpo', compact('order'));
+    }
+
+    // print PO controller 
+    public function printPdf($id){
+        $order = Order::findOrFail($id);
+
+        $pdf = Pdf::loadView('admin.printpo', compact('order'));
+        return $pdf->stream('admin.detailpo.pdf');
     }
 
     /**
