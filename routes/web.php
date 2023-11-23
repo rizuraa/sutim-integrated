@@ -55,9 +55,17 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         return view('admin.bar');
     })->name('admin.bar');    
 
+    Route::get('/bar/detail', function() {
+        return view('admin.bardetail');
+    })->name('admin.bar.detail');
+
     Route::get('/kitchen', function () {
         return view('admin.kitchen');
     })->name('admin.kitchen');
+
+    Route::get('/kitchen/detail', function() {
+        return view('admin.kitchendetail');
+    })->name('admin.kitchen.detail');
 
     // prduct
     // Route::get('/product', function () {
