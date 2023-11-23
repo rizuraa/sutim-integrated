@@ -85,7 +85,20 @@
             text-align: center;
             /* margin: 5px; */
         }
-
+        .table-mod {
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+            background-color: #fff;
+        }
+        
+        .table-mod th, .table-mod td {
+            background-color: #fff;
+            color: #000000;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 0px;
+        }
         /* .col-4 {
             width: 33.33%;
             float: left;
@@ -94,18 +107,7 @@
         }
         .clearfix {
             clear: both;
-        } */
-        @media print {
-            body {
-                background-color: #fff; /* Hindari latar belakang transparan */
-            }
-            a {
-                color: #000; /* Hindari tautan berwarna putih */
-            }
-            table {
-                page-break-inside: avoid; /* Hindari melewati halaman saat mencetak */
-            }
-        }
+        } */    
     </style>
 </head>
 <body>
@@ -168,22 +170,33 @@
                                 <p>Grand Total: {{ $order->grand_total }}</p>
                             </div>
                         </div>           
-                        <br><br><br><br><br>             
+                        <br><br><br><br><br><br>
+                        <table class="table-mod">
+                            <thead style="background-color: #fff; text-align: center;">
+                                <tr style="background-color: #fff;">
+                                    <th style="background-color: #fff; color: #000000; padding: 10px;">Diajukan Oleh</th>
+                                    <th style="background-color: #fff; color: #000000; padding: 10px;">Diketahui Oleh</th>
+                                    <th style="background-color: #fff; color: #000000; padding: 10px;">Disetujui Oleh</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td><td></td><td></td>
+                                </tr>
+                                <tr>
+                                    <td></td><td></td><td></td>
+                                </tr>
+                                <tr>
+                                    <td></td><td></td><td></td>
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td style="padding: 10px;">{{$order->diajukan_oleh}}</td>
+                                    <td style="padding: 10px;">{{$order->diketahui_oleh}}</td>
+                                    <td style="padding: 10px;">{{$order->disetujui_oleh}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         
-                        <div class="cover">
-                            <div class="component">
-                                <p>Diajukan Oleh</p>
-                                <p class="fw-bold">{{$order->diajukan_oleh}}</p>
-                            </div>
-                            <div class="component">
-                                <p>Diketahui Oleh</p>
-                                <p class="fw-bold">{{$order->diketahui_oleh}}</p>
-                            </div>
-                            <div class="component">
-                                <p>Disetujui Oleh</p>
-                                <p class="fw-bold">{{$order->disetujui_oleh}}</p>
-                            </div>                                                    
-                        </div>                        
                     </div>
                 </div>
             </div>
