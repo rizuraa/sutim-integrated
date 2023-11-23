@@ -29,7 +29,7 @@
                                     <td>19 - nov - 2023</td>
                                     <td>nasgor</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Detail</a>
+                                        <a href="{{route('admin.kitchen.detail')}}" class="btn btn-primary">Detail</a>
                                         <a href="" class="btn btn-success">Setujui</a>
                                     </td>
                                 </tr>                                
