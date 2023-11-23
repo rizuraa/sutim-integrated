@@ -54,7 +54,7 @@
                 
                             <div class="mb-3">
                                 <label for="payment_date" class="form-label">Payment Date</label>
-                                <input type="text" class="form-control" id="payment_date" name="payment_date" required>
+                                <input type="date" class="form-control" id="payment_date" name="payment_date" required>
                             </div>
                 
                             <div class="mb-3">
