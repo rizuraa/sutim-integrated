@@ -26,6 +26,9 @@
                                 <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                             </div>
                         </div>
+                        {{-- item list request --}}
+                        <h4>Request List</h4>
+                        <div id="itemListContainer"></div>
                         <div class="d-grid gap-2">
                             <button type="button" class="btn btn-primary" id="addFormItem">Tambah Barang</button>
                             <button class="btn btn-success" type="submit">Submit All</button>
