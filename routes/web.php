@@ -89,6 +89,10 @@ Route::middleware(['kitchen'])->prefix('kitchen')->group(function () {
     Route::get('/request', function(){
         return view('kitchen.request');
     })->name('kitchen.request');
+
+    Route::get('/request-order', function(){
+        return view('kitchen.requestform');
+    })->name('kitchen.request.form');
 });
 
 
