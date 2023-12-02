@@ -9,7 +9,7 @@
                         {{ session('status') }}
                     </div>
                 @endif
-            <a href="{{route('kitchen.request.form')}}" class="btn btn-success mb-4">Request Now</a>
+            <a href="{{route('bar.request.form')}}" class="btn btn-success mb-4">Request Now</a>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-black">Laporan Request Bar</h6>
