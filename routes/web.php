@@ -90,7 +90,7 @@ Route::middleware(['kitchen'])->prefix('kitchen')->group(function () {
         return view('kitchen.request');
     })->name('kitchen.request');
 
-    Route::get('/request-order', function(){
+    Route::get('/kitchen-request-order', function(){
         return view('kitchen.requestform');
     })->name('kitchen.request.form');
 });
@@ -106,4 +106,8 @@ Route::middleware(['bar'])->prefix('bar')->group(function () {
     Route::get('/request', function(){
         return view('bar.request');
     })->name('bar.request');
+
+    Route::get('/bar-request-order', function(){
+        return view('bar.requestform');
+    })->name('bar.request.form');
 });
