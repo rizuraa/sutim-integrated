@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('request_bar', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('nama');
+            $table->string('keperluan');
+            $table->string('tgl_req');
+            $table->string('status');
         });
     }
 
