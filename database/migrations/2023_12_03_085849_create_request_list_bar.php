@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('request_list_bar', function (Blueprint $table) {
-            $table->id();
+            $table->id();            
+            $table->string('product_name');
+            $table->string('unit');
+            $table->string('qty');
+            // joinn
+            $table->unsignedBigInteger('id_request_bar');
+            $table->foreign('id_request_bar')->references('id')->on('bar')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,3 +31,4 @@ return new class extends Migration
         Schema::dropIfExists('request_list_bar');
     }
 };
+
