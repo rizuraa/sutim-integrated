@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('request_kitchen', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('keperluan');
+            $table->string('tgl_req');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('unit');
             $table->string('qty');
-            // joinn
+            // join
             $table->unsignedBigInteger('id_request_bar');
-            $table->foreign('id_request_bar')->references('id')->on('bar')->onDelete('cascade');
+            $table->foreign('id_request_bar')->references('id')->on('request_bar')->onDelete('cascade');
             $table->timestamps();
         });
     }

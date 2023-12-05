@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('request_list_kitchen', function (Blueprint $table) {
             $table->id();
+            $table->string('product_name');
+            $table->string('unit');
+            $table->string('qty');
+            // join
+            $table->unsignedBigInteger('id_request_kitchen');
+            $table->foreign('id_request_kitchen')->references('id')->on('request_kitchen')->onDelete('cascade');
             $table->timestamps();
         });
     }
