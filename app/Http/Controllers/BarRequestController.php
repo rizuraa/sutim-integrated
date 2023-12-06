@@ -15,7 +15,7 @@ class BarRequestController extends Controller
     {
         $requestBar = RequestBar::all();
 
-        return view('admin.bar', compact('requestBar'));
+        return view('bar.request', compact('requestBar'));
     }
 
     /**
@@ -23,7 +23,7 @@ class BarRequestController extends Controller
      */
     public function create()
     {
-        return view('bar.request.form');
+        return view('bar.requestForm');
     }
 
     /**

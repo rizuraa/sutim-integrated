@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\PoController;
+use App\Http\Controllers\BarRequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,13 +102,9 @@ Route::middleware(['bar'])->prefix('bar')->group(function () {
     // index route bar
     Route::get('/', function(){
         return view('bar.index');
-    })->name('bar');
+    })->name('bar');    
 
-    Route::get('/request', function(){
-        return view('bar.request');
-    })->name('bar.request');
+    Route::get('/bar-request', [BarRequestController::class, 'index'])->name('bar.request');    
 
-    Route::get('/bar-request-order', function(){
-        return view('bar.requestform');
-    })->name('bar.request.form');
+    Route::get('/bar-request-form', [BarRequestController::class, 'create'])->name('bar.request.form');
 });
