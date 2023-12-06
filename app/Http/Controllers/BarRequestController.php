@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RequestBar;
+use App\Models\RequestBarList;
 
 class BarRequestController extends Controller
 {
@@ -11,7 +13,9 @@ class BarRequestController extends Controller
      */
     public function index()
     {
-        //
+        $requestBar = RequestBar::all();
+
+        return view('admin.bar', compact('requestBar'));
     }
 
     /**
