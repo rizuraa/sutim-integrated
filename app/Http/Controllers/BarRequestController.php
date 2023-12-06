@@ -23,7 +23,7 @@ class BarRequestController extends Controller
      */
     public function create()
     {
-        //
+        return view('bar.request.form');
     }
 
     /**
