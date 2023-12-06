@@ -14,7 +14,6 @@ class BarRequestController extends Controller
     public function index()
     {
         $requestBar = RequestBar::all();
-
         return view('bar.request', compact('requestBar'));
     }
 
