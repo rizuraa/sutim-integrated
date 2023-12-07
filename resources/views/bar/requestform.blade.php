@@ -11,6 +11,8 @@
                   <div class="card-header">{{ __('Input Form Request') }}</div>
                   <div class="card-body">
                     {{-- Card Body --}}
+                    <form method="POST" action="{{route('bar.request.add')}}">
+                    @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
                             <div class="mb-3">
@@ -34,6 +36,7 @@
                             <button class="btn btn-success" type="submit">Submit All</button>
                         </div>
                   </div>
+                </form>
                 </div>
               </div>
             </div>

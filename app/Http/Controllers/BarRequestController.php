@@ -33,8 +33,7 @@ class BarRequestController extends Controller
         $request->validate([
             'nama' => 'required',
             'keperluan' => 'required',
-            'tgl_req' => 'required',
-            'status' => 'required',
+            'tgl_req' => 'required',            
             'list_order.*.nama' => 'required',
             'list_order.*.unit' => 'required',
             'list_order.*.qty' => 'required|numeric',
@@ -50,7 +49,7 @@ class BarRequestController extends Controller
         // request list form bar 
         $requestBarList = $request->input('list_order');
         foreach ($requestBarList as $itemData) {
-            $listOrder = new ListOrder();
+            $listOrder = new RequestBarList();
             $listOrder->nama = $itemData['nama'];
             $listOrder->unit = $itemData['unit'];
             $listOrder->qty = $itemData['qty'];

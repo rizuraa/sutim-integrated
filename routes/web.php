@@ -107,4 +107,6 @@ Route::middleware(['bar'])->prefix('bar')->group(function () {
     Route::get('/bar-request', [BarRequestController::class, 'index'])->name('bar.request');    
 
     Route::get('/bar-request-form', [BarRequestController::class, 'create'])->name('bar.request.form');
+
+    Route::post('/bar-request-add', [BarRequestController::class, 'store'])->name('bar.request.add');
 });
