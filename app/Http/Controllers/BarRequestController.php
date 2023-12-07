@@ -30,7 +30,31 @@ class BarRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'keperluan' => 'required',
+            'tgl_req' => 'required',
+            'status' => 'required',
+            'list_order.*.nama' => 'required',
+            'list_order.*.unit' => 'required',
+            'list_order.*.qty' => 'required|numeric',
+        ]);
+
+        // request form bar
+        $requestBar = new RequestBar();
+        $requestBar->nama = $request->input('nama');
+        $requestBar->keperluan = $request->input('keperluan');
+        $requestBar->tgl_req = $request->input('tgl_req');
+        $requestBar->status = 'pending';
+
+        // request list form bar 
+        $requestBarList = $request->input('list_order');
+        foreach ($requestBarList as $itemData) {
+            $listOrder = new ListOrder();
+            $listOrder->nama = $itemData['nama'];
+            $listOrder->unit = $itemData['unit'];
+            $listOrder->qty = $itemData['qty'];
+        }
     }
 
     /**
