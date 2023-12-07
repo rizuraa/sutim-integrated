@@ -47,7 +47,7 @@ class BarRequestController extends Controller
         $requestBar->status = 'pending';
 
         // request list form bar 
-        $requestBarList = $request->input('list_order');
+        $requestBarList = $request->input('request_list_bar');
         foreach ($requestBarList as $itemData) {
             $listOrder = new RequestBarList();
             $listOrder->nama = $itemData['nama'];
