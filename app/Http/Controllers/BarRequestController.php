@@ -34,9 +34,9 @@ class BarRequestController extends Controller
             'nama' => 'required',
             'keperluan' => 'required',
             'tgl_req' => 'required',            
-            'list_order.*.nama' => 'required',
-            'list_order.*.unit' => 'required',
-            'list_order.*.qty' => 'required|numeric',
+            'request_list_bar.*.nama' => 'required',
+            'request_list_bar.*.unit' => 'required',
+            'request_list_bar.*.qty' => 'required|numeric',
         ]);
 
         // request form bar
@@ -49,10 +49,10 @@ class BarRequestController extends Controller
         // request list form bar 
         $requestBarList = $request->input('request_list_bar');
         foreach ($requestBarList as $itemData) {
-            $listOrder = new RequestBarList();
-            $listOrder->nama = $itemData['nama'];
-            $listOrder->unit = $itemData['unit'];
-            $listOrder->qty = $itemData['qty'];
+            $requestBarList = new RequestBarList();
+            $requestBarList->nama = $itemData['nama'];
+            $requestBarList->unit = $itemData['unit'];
+            $requestBarList->qty = $itemData['qty'];
         }
     }
 
