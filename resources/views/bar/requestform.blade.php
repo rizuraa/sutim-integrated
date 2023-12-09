@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="card mb-3">
-                  <div class="card-header">{{ __('Input Form Request') }}</div>
+                  <div class="card-header">{{ __('Input Form Request')}}</div>
                   <div class="card-body">
                     {{-- Card Body --}}
                     <form method="POST" action="{{route('bar.request.add')}}">
