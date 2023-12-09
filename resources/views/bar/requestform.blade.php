@@ -17,7 +17,7 @@
                         <div class="form-group col-md-6">
                             <div class="mb-3">
                                 <label for="number_order" class="form-label">Nama Staff</label>
-                                <input type="text" class="form-control" id="nama_staff" name="nama_staff" required>
+                                <input type="text" class="form-control" id="nama_staff" name="nama" required>
                             </div>                
                             <div class="mb-3">
                                 <label for="platform" class form-label">Keperluan</label>
@@ -25,7 +25,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="delivery" class="form-label">tanggal</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                                <input type="date" class="form-control" id="tanggal" name="tgl_req" required>
                             </div>
                         </div>
                         {{-- item list request --}}

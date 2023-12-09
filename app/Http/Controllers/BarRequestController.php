@@ -38,23 +38,29 @@ class BarRequestController extends Controller
             'request_list_bar.*.unit' => 'required',
             'request_list_bar.*.qty' => 'required|numeric',
         ]);
-
+    
         // request form bar
         $requestBar = new RequestBar();
         $requestBar->nama = $request->input('nama');
         $requestBar->keperluan = $request->input('keperluan');
         $requestBar->tgl_req = $request->input('tgl_req');
         $requestBar->status = 'pending';
-
+        $requestBar->save();
+    
         // request list form bar 
-        $requestBarList = $request->input('request_list_bar');
-        foreach ($requestBarList as $itemData) {
+        $requestBarListData = $request->input('request_list_bar');
+        foreach ($requestBarListData as $itemData) {
             $requestBarList = new RequestBarList();
             $requestBarList->nama = $itemData['nama'];
             $requestBarList->unit = $itemData['unit'];
             $requestBarList->qty = $itemData['qty'];
+            $requestBarList->requestBar()->associate($requestBar);
+            $requestBarList->save();
         }
+    
+        return redirect()->route('bar.requestForm')->with('success', 'Order berhasil dibuat');
     }
+    
 
     /**
      * Display the specified resource.

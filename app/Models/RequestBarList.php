@@ -11,7 +11,7 @@ class RequestBarList extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_name',
+        'nama',
         'unit',
         'qty'        
     ];

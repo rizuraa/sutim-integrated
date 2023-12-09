@@ -70,30 +70,17 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
     var currentIndex = 0;
-
     var container = document.getElementById('itemListContainer');
+
     container.addEventListener('click', function (event) {
         if (event.target.classList.contains('deleteButton')) {
-            deleteFormItem(event.target.getAttribute('data-index')); 
+            deleteFormItem(event.target.getAttribute('data-index'));
         }
     });
 
     var addButton = document.getElementById('addFormItem');
     addButton.addEventListener('click', function () {
         addFormItem();
-    
-        container.addEventListener('input', function (event) {
-      if (
-        event.target.classList.contains('qtyInput') ||
-        event.target.classList.contains('priceInput') ||
-        event.target.classList.contains('discInput') ||
-        event.target.classList.contains('ongkirInput')
-      ) {
-        var index = event.target.closest('.row').querySelector('.deleteButton').getAttribute('data-index');
-        calculateTotalAndAddItem(index);
-        calculateGrandTotal();
-      }
-    });
     });
 
     function addFormItem() {
@@ -106,7 +93,6 @@
                         <input type="text" class="form-control productNameInput" name="list_order[${currentIndex}][nama]">
                     </div>
                 </div>
-                <!-- Tambah input form lainnya sesuai kebutuhan -->
                 <div class="col-md-2">
                     <div class="mb-3">
                         <label for="unitInput" class="form-label">Unit</label>
@@ -118,7 +104,7 @@
                         <label for="qtyInput" class="form-label">Qty</label>
                         <input type="text" class="form-control qtyInput" name="list_order[${currentIndex}][qty]">
                     </div>
-                </div>                
+                </div>
                 <div class="col-md-1">
                     <div class="mb-3">
                         <label for="submitButton" class="form-label">Submit</label>
@@ -126,9 +112,8 @@
                         <button type="button" class="btn btn-danger deleteButton" data-index="${currentIndex}">Hapus</button>
                     </div>
                 </div>
-            </div>            
-        `;
-        
+            </div>`;
+
         container.appendChild(newItemDiv);
         currentIndex++;
     }
@@ -136,8 +121,9 @@
     function deleteFormItem(index) {
         var deleteButton = document.querySelector(`.deleteButton[data-index="${index}"]`);
         var itemToRemove = deleteButton.closest('.row');
-         itemToRemove.parentNode.removeChild(itemToRemove);
+        itemToRemove.parentNode.removeChild(itemToRemove);
     }
 });
+
 </script>
 </html>
