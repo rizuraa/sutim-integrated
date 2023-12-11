@@ -26,17 +26,19 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>                            
-                                <tr>
-                                    <td>1</td>
-                                    <td>Zahran</td>
-                                    <td>19 - nov - 2023</td>
-                                    <td>nasgor</td>
-                                    <td>
-                                        <a href="{{route('admin.bar.detail')}}" class="btn btn-primary">Detail</a>
-                                        <a href="" class="btn btn-success">Setujui</a>
-                                    </td>
-                                </tr>                                
+                            <tbody>
+                                @foreach($requestBar as $key => $requestBar)                
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$requestBar->nama}}</td>
+                                        <td>{{$requestBar->keperluan}}</td>
+                                        <td>{{$requestBar->tgl_req}}</td>
+                                        <td>
+                                            <a href="{{route('admin.bar.detail')}}" class="btn btn-primary">Detail</a>
+                                            <a href="" class="btn btn-success">Setujui</a>
+                                        </td>
+                                    </tr>                                
+                                @endforeach                                
                             </tbody>
                         </table>
                     </div>
