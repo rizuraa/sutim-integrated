@@ -90,19 +90,19 @@
                 <div class="col-md-2">
                     <div class="mb-3">
                         <label for="productNameInput" class="form-label">Product Name</label>
-                        <input type="text" class="form-control productNameInput" name="list_order[${currentIndex}][nama]">
+                        <input type="text" class="form-control productNameInput" name="request_list_bar[${currentIndex}][nama]">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="mb-3">
                         <label for="unitInput" class="form-label">Unit</label>
-                        <input type="text" class="form-control unitInput" name="list_order[${currentIndex}][unit]">
+                        <input type="text" class="form-control unitInput" name="request_list_bar[${currentIndex}][unit]">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="mb-3">
                         <label for="qtyInput" class="form-label">Qty</label>
-                        <input type="text" class="form-control qtyInput" name="list_order[${currentIndex}][qty]">
+                        <input type="text" class="form-control qtyInput" name="request_list_bar[${currentIndex}][qty]">
                     </div>
                 </div>
                 <div class="col-md-1">
