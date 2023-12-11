@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\requestBarList;
+use App\Models\RequestBarList;
 
 class RequestBar extends Model
 {
@@ -17,6 +17,6 @@ class RequestBar extends Model
     ];
 
     public function requestBarList(){
-        return $this->hasMany(requestBarList::class, 'id_request_bar');
+        return $this->hasMany(RequestBarList::class, 'id_request_bar');
     }
 }

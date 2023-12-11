@@ -48,17 +48,17 @@ class BarRequestController extends Controller
         $requestBar->save();
     
         // request list form bar 
-        $requestBarListData = $request->input('request_list_bar');
-        foreach ($requestBarListData as $itemData) {
-            $requestBarList = new RequestBarList();
-            $requestBarList->nama = $itemData['nama'];
-            $requestBarList->unit = $itemData['unit'];
-            $requestBarList->qty = $itemData['qty'];
-            $requestBarList->requestBar()->associate($requestBar);
-            $requestBarList->save();
+        $requestListBar = $request->input('request_list_bar');
+        foreach ($requestListBar as $itemData) {
+            $requestListBar = new RequestBarList();
+            $requestListBar->nama = $itemData['nama'];
+            $requestListBar->unit = $itemData['unit'];
+            $requestListBar->qty = $itemData['qty'];
+            $requestListBar->requestBar()->associate($requestBar);
+            $requestListBar->save();
         }
     
-        return redirect()->route('bar.requestForm')->with('success', 'Order berhasil dibuat');
+        return redirect()->route('bar.request.form')->with('success', 'Order berhasil dibuat');
     }
     
 
