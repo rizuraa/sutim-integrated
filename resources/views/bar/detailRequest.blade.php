@@ -11,10 +11,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Request Bar : {{$requestBar->tgl_req}}</p>
-                            <p>Nama Karyawan : {{$requestBar->nama}}</p>
-                            <p>Keperluan : {{$requestBar->keperluan}}</p>
-                            <p>Status : {{$requestBar->status}}</p>
+                            <p><b>Request Bar</b>: {{$requestBar->tgl_req}}</p>
+                            <p><b>Karyawan</b> : {{$requestBar->nama}}</p>
+                            <p><b>Keperluan</b> : {{$requestBar->keperluan}}</p>
+                            <p><b>Status</b> : {{$requestBar->status}}</p>
                         </div>
                         <div class="col-md-6">
                             <table class="table table-striped">
