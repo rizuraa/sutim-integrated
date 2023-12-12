@@ -68,7 +68,7 @@ class BarRequestController extends Controller
     public function show(string $id)
     {
         $requestBar = RequestBar::findOrFail($id);
-        return view('bar.request', compact('request_bar'));
+        return view('bar.detailRequest', compact('requestBar'));
     }
 
     /**

@@ -34,7 +34,7 @@
                                         <td>{{$requestBar->keperluan}}</td>
                                         <td>{{$requestBar->tgl_req}}</td>
                                         <td>
-                                            <a href="{{route('admin.bar.detail')}}" class="btn btn-primary">Detail</a>
+                                            <a href="{{route('bar.request.detail', ['id' => $requestBar->id])}}" class="btn btn-primary">Detail</a>
                                             <a href="" class="btn btn-success">Setujui</a>
                                         </td>
                                     </tr>                                
