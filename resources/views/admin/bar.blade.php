@@ -34,12 +34,16 @@
                                         <td>{{$requestBar->nama}}</td>
                                         <td>{{$requestBar->keperluan}}</td>
                                         <td>{{$requestBar->tgl_req}}</td>
-                                        <td>
-                                            <span class="badge text-bg-warning">{{$requestBar->status}}</span>                                            
+                                        <td>                                            
+                                            @if ($requestBar->status==="pending")
+                                                <span class="badge text-bg-warning">{{$requestBar->status}}</span>
+                                            @else
+                                                <span class="badge text-bg-success">{{$requestBar->status}}</span>
+                                            @endif                                            
                                         </td>
                                         <td>
                                             <a href="{{route('bar.request.detail', ['id' => $requestBar->id])}}" class="btn btn-primary">Detail</a>
-                                            <a href="" class="btn btn-success">Setujui</a>
+                                            <a href="{{route('admin.bar.approve', ['id' => $requestBar->id])}}" class="btn btn-success">Setujui</a>
                                         </td>
                                     </tr>                                
                                 @endforeach                                
