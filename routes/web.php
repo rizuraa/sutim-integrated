@@ -51,11 +51,14 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/po/{id}', [PoController::class, 'show'])->name('admin.detailpo');
     // print route 
     Route::get('/po/{id}/print', [PoController::class, 'printPdf'])->name('admin.detailpo.print');
+    
+    // bar section 
+    // Route::get('/bar', function () {
+    //     return view('admin.bar');
+    // })->name('admin.bar');    
 
-    Route::get('/bar', function () {
-        return view('admin.bar');
-    })->name('admin.bar');    
-
+    Route::get('/bar', [BarRequestController::class, 'adminShow'])->name('admin.bar');    
+    
     Route::get('/bar/detail', function() {
         return view('admin.bardetail');
     })->name('admin.bar.detail');

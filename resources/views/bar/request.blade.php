@@ -23,6 +23,7 @@
                                     <th>Oleh</th>
                                     <th>tanggal</th>
                                     <th>Kepentingan</th>
+                                    <th>status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -33,6 +34,9 @@
                                         <td>{{$requestBar->nama}}</td>
                                         <td>{{$requestBar->keperluan}}</td>
                                         <td>{{$requestBar->tgl_req}}</td>
+                                        <td>
+                                            <span class="badge text-bg-warning">{{$requestBar->status}}</span>                                            
+                                        </td>
                                         <td>
                                             <a href="{{route('bar.request.detail', ['id' => $requestBar->id])}}" class="btn btn-primary">Detail</a>
                                             <a href="" class="btn btn-success">Setujui</a>

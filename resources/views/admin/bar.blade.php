@@ -2,10 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <h1 class="h3 mb-2 text-gray-800">Bar Request</h1>
-            <p class="mb-4">Tabel laporan request dari Bar</p>            
+    <div class="row justify-content-center">                
+        <div class="col-md-12">                
+            @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            <a href="{{route('bar.request.form')}}" class="btn btn-success mb-4">Request Now</a>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-black">Laporan Request Bar</h6>
@@ -19,26 +23,32 @@
                                     <th>Oleh</th>
                                     <th>tanggal</th>
                                     <th>Kepentingan</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>                            
-                                <tr>
-                                    <td>1</td>
-                                    <td>Zahran</td>
-                                    <td>19 - nov - 2023</td>
-                                    <td>Kopi</td>
-                                    <td>
-                                        <a href="{{route ('admin.bar.detail')}}" class="btn btn-primary">Detail</a>
-                                        <a href="" class="btn btn-success">Setujui</a>
-                                    </td>
-                                </tr>                                
+                            <tbody>
+                                @foreach($requestBar as $key => $requestBar)                
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$requestBar->nama}}</td>
+                                        <td>{{$requestBar->keperluan}}</td>
+                                        <td>{{$requestBar->tgl_req}}</td>
+                                        <td>
+                                            <span class="badge text-bg-warning">{{$requestBar->status}}</span>                                            
+                                        </td>
+                                        <td>
+                                            <a href="{{route('bar.request.detail', ['id' => $requestBar->id])}}" class="btn btn-primary">Detail</a>
+                                            <a href="" class="btn btn-success">Setujui</a>
+                                        </td>
+                                    </tr>                                
+                                @endforeach                                
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 </div>
 @endsection

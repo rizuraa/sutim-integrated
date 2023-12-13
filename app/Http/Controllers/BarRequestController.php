@@ -71,6 +71,13 @@ class BarRequestController extends Controller
         return view('bar.detailRequest', compact('requestBar'));
     }
 
+    // bar admin 
+    public function adminShow()
+    {
+        $requestBar = RequestBar::all();
+        return view('admin.bar', compact('requestBar'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
