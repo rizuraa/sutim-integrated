@@ -80,16 +80,10 @@ class BarRequestController extends Controller
 
     public function approval(string $id)
     {
-        $requestBar = RequestBar::findOrFail($id);
-        
-        // Pastikan bahwa 'status' sebelumnya adalah 'pending'
-        if ($requestBar->status === 'pending') {
-            $requestBar->status = 'disetujui';
-            $requestBar->save();
-            return view('admin.bar', compact('requestBar'));
-        } else {
-            return view('admin.bar', compact('requestBar'));
-        }
+        $requestBar = RequestBar::find($id);
+        $requestBar->status = 'disetujui';
+        $requestBar->save();
+        return view('admin.bar', compact('requestBar'));        
     }
 
     /**
