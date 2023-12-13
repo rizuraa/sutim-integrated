@@ -88,8 +88,7 @@ class BarRequestController extends Controller
             $requestBar->save();
             return view('admin.bar', compact('requestBar'));
         } else {
-            // Tindakan yang sesuai jika status bukan 'pending', misalnya memberikan pesan kesalahan.
-            return redirect()->back()->with('error', 'Status bukan pending.');
+            return view('admin.bar', compact('requestBar'));
         }
     }
 

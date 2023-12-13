@@ -30,7 +30,7 @@
                             <tbody>
                                 @foreach($requestBar as $key => $requestBar)                
                                     <tr>
-                                        <td>{{$key+1}}</td>
+                                        <td>{{$loop->iteration}}</td>
                                         <td>{{$requestBar->nama}}</td>
                                         <td>{{$requestBar->keperluan}}</td>
                                         <td>{{$requestBar->tgl_req}}</td>
