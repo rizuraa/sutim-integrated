@@ -29,7 +29,7 @@
                             <tbody>
                                 @foreach($requestBar as $item)                
                                     <tr>
-                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$loop->iteration}}</td>                                        
                                         <td>{{$item->nama}}</td>
                                         <td>{{$item->keperluan}}</td>
                                         <td>{{$item->tgl_req}}</td>
