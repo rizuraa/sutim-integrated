@@ -81,7 +81,6 @@ class BarRequestController extends Controller
     public function approval(string $id)
     {
         $requestBar = RequestBar::findOrFail($id);
-
         if ($requestBar) {
             // Jika $requestBar ditemukan
             $requestBar->status = 'disetujui';
