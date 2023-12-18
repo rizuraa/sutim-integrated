@@ -55,7 +55,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     // bar section 
 
     Route::get('/bar', [BarRequestController::class, 'adminShow'])->name('admin.bar');    
-    Route::get('/bar-detail/{id}', [BarRequestController::class, 'detailBarAdmin'])->name('admin.bar.detail');    
+    Route::get('/bar-detail/{id}', [BarRequestController::class, 'show'])->name('admin.bar.detail');    
     Route::get('/bar-approve/{id}', [BarRequestController::class, 'approval'])->name('admin.bar.approve');    
     
     Route::get('/bar/detail', function() {
@@ -112,5 +112,5 @@ Route::middleware(['bar'])->prefix('bar')->group(function () {
 
     Route::post('/bar-request-add', [BarRequestController::class, 'store'])->name('bar.request.add');
 
-    Route::get('/bar-request-detail/{id}', [BarRequestController::class, 'show'])->name('bar.request.detail');
+    Route::get('/bar-request-detail/{id}', [BarRequestController::class, 'show'])->name('bar.request.detail');    
 });

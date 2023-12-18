@@ -27,22 +27,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($requestBar as $item)                
+                                @foreach($requestBar as $key => $requestBar)               
                                     <tr>
-                                        <td>{{$loop->iteration}}</td>                                        
-                                        <td>{{$item->nama}}</td>
-                                        <td>{{$item->keperluan}}</td>
-                                        <td>{{$item->tgl_req}}</td>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$requestBar->nama}}</td>
+                                        <td>{{$requestBar->keperluan}}</td>
+                                        <td>{{$requestBar->tgl_req}}</td>
                                         <td>                                            
-                                            @if ($item->status==="pending")
-                                                <span class="badge text-bg-warning">{{$item->status}}</span>
+                                            @if ($requestBar->status==="pending")
+                                                <span class="badge text-bg-warning">{{$requestBar->status}}</span>
                                             @else
-                                                <span class="badge text-bg-success">{{$item->status}}</span>
+                                                <span class="badge text-bg-success">{{$requestBar->status}}</span>
                                             @endif                                            
                                         </td>
                                         <td>
-                                            <a href="{{route('admin.bar.detail', ['id' => $item->id])}}" class="btn btn-primary">Detail</a>
-                                            <a href="{{route('admin.bar.approve', ['id' => $item->id])}}" class="btn btn-success">Setujui</a>
+                                            <a href="{{route('admin.bar.detail', ['id' => $requestBar->id])}}" class="btn btn-primary">Detail</a>
+                                            <a href="{{route('admin.bar.approve', ['id' => $requestBar->id])}}" class="btn btn-success">Setujui</a>
                                         </td>
                                     </tr>                                
                                 @endforeach                                
