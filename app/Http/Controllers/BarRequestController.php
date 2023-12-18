@@ -78,6 +78,13 @@ class BarRequestController extends Controller
         return view('admin.bar', compact('requestBar'));
     }
 
+    public function detailBarAdmin(string $id)
+    {
+        $requestBar = RequestBar::findOrFail($id);
+        dd($requestBar);
+        return view('admin.bardetail', compact('requestBar'));
+    }
+
     public function approval(string $id)
     {
         $requestBar = RequestBar::findOrFail($id);

@@ -55,6 +55,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     // bar section 
 
     Route::get('/bar', [BarRequestController::class, 'adminShow'])->name('admin.bar');    
+    Route::get('/bar-detail/{id}', [BarRequestController::class, 'detailBarAdmin'])->name('admin.bar.detail');    
     Route::get('/bar-approve/{id}', [BarRequestController::class, 'approval'])->name('admin.bar.approve');    
     
     Route::get('/bar/detail', function() {

@@ -41,7 +41,7 @@
                                             @endif                                            
                                         </td>
                                         <td>
-                                            <a href="{{route('bar.request.detail', ['id' => $item->id])}}" class="btn btn-primary">Detail</a>
+                                            <a href="{{route('admin.bar.detail', ['id' => $item->id])}}" class="btn btn-primary">Detail</a>
                                             <a href="{{route('admin.bar.approve', ['id' => $item->id])}}" class="btn btn-success">Setujui</a>
                                         </td>
                                     </tr>                                
